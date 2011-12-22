@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 18, 2011 2:08:45 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="lastgo.Records" table="records" catalog="lastup">
+        <id name="recid" type="java.lang.Integer">
+            <column name="recid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="lastgo.User" fetch="select">
+            <column name="postedby" />
+        </many-to-one>
+        <property name="latitude" type="java.lang.Double">
+            <column name="latitude" precision="22" scale="0" />
+        </property>
+        <property name="longitude" type="java.lang.Double">
+            <column name="longitude" precision="22" scale="0" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="time" length="19" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="45" />
+        </property>
+        <property name="comments" type="string">
+            <column name="comments" />
+        </property>
+        <property name="image" type="binary">
+            <column name="image" />
+        </property>
+    </class>
+</hibernate-mapping>
